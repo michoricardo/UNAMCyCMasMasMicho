@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main(void) {
+    int x,arr[10],temporal;
+    srand(time(NULL));
+    for(x=0;x<10;x++){
+    arr[x]=rand()%100;
+    printf("%d ",arr[x]);
+    }
+    printf(" \n");
+    printf("Arreglo de 10 números desordenado\n");
+			int w, temporal2;
+        //  10 veces       
+  			for (w=0;w<10;w++)
+        //valor en indice w hacia temporal
+  				{temporal2 = arr[w];
+        //Se comparan elementos hasta llegar a su lugar
+  				while ((w>0)&&(temporal2< arr[w-1]))
+   					{arr [w]= arr [w-1]; w--;}
+   				arr [w]=temporal2;
+   				}
+    printf(" \n");
+    printf("Arreglo de 10 números ya ordenado\n");
+    for(int y=0; y<10; y++){
+        printf("%d ",arr[y]);
+    }
+
+return 0;
+}
