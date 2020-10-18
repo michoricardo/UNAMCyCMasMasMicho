@@ -1,0 +1,78 @@
+//Ricardo GarcIa Reyes
+//UNAM INFORMATICA 420153793
+//Unidad 1 Actividad Complementaria 2
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int temporal;
+int main(void) {
+  int arr[100],arrayochenta[80];
+  int limbajo =1; 
+  int limalto = 100;
+  int iter1,iter2, random, temp;
+  srand(time(NULL));
+  //generar un arreglo de 100 numeros derechito
+  printf("\n");
+  printf("Arreglo de 100 numeros ejemplo");
+  printf("\n");
+  for (iter1=0; iter1<100; iter1++){
+    arr[iter1]=iter1+1;
+  }
+  for (iter1=0; iter1<100; iter1++){
+    printf("%d ",arr[iter1]);//se imprimen desde el base
+  }
+printf("\n");
+//randomizar ese arreglo que estaba derechito
+  for(iter1=0; iter1<80;iter1++){
+    //calculando un numero random
+    random=rand()%99+1;
+    //random = (rand()%(limalto - limbajo + 1))+limbajo;
+    temp=arr[iter1];
+    arr[iter1]=arr[random];
+    //ese valor lo aprovecho y lo pongo en otro lugar (si no se repetiria)
+    arr[random]=temp;
+  }
+  printf("\n");
+  printf("Arreglo de 80 numeros random y sin repeticion ");
+  printf("\n");
+  for (iter1=0; iter1<80; iter1++){
+    arrayochenta[iter1]=arr[iter1];
+    printf("%d ",arrayochenta[iter1]);
+    //printf("%d ",arr[iter1]);
+  }
+  printf("\n");
+    for (iter1 =0; iter1<80; iter1++){
+    for(int z=0; z<80 ;z++){
+      if(arrayochenta[z]>arrayochenta[z+1]){
+                temporal = arrayochenta[z+1];
+                arrayochenta[z+1] = arrayochenta[z];
+                arrayochenta[z]= temporal;
+            }
+        }
+    }
+  printf("\n");
+    printf("Arreglo de 80 ordenado por burbuja");
+    printf("\n");
+  for (int iter1=0; iter1<=80; iter1++){
+    //arrayochenta[iter1]=arrayochenta[iter1];
+    printf("%d ",arrayochenta[iter1]);
+  }
+  printf("\n");
+//Checando e imprimiendo lo numeros que faltan
+ int faltantes[100];
+ int i;
+	for(i = 0; i < 100; i++ ){
+		faltantes[i] = 0;
+	}
+	printf("\n");
+	for(i = 0; i <=80; i++ ){
+		faltantes[arrayochenta[i]-1] = arrayochenta[i];
+	}	
+		printf ("Numeros faltantes\n");
+	for(i = 0; i <100; i++ ){
+    //si el indice del arreglo de faltantes con indice i =0, imprime el indice i +1 
+		if(faltantes[i] == 0){
+			printf("%d ", (i+1));  
+		}
+	}			
+}
