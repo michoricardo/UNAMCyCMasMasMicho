@@ -18,7 +18,7 @@ if(num <= entrada)
 {
   //cout<<"numeroooo"<<endl;
   cout<<num<<endl; 
-  salida+=to_string(num);
+  salida= salida+(to_string(num));
   //cout<<"salida actual es: "<<salida<<endl;
   preparando(num+1);
 }
@@ -27,7 +27,7 @@ int main() {
 string input;
 cout<<"Escribe el numero para imprimir subconjuntos"<<endl;
 cin>>entrada;
-string output =""; //primera iteracion de output vacía
-preparando(1); //primera iteracion con 1 como el numero mas pequeño
+string output =""; //primera iteracion de output vacio
+preparando(1); //primera iteracion con 1 como el numero mas pequeno
 print_subs(salida,output); //salida viene de la funcion preparando y output es el string vacio
 }
